@@ -3,29 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Resume — นาย ทินวุฒิ พลบำรุง</title>
+<title>Resume — Thinnawut Pholbumrung</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
 :root {
-  --bg: #0f172a;
-  --bg2: #1e293b;
-  --card: #1e293b;
-  --border: #334155;
-  --text: #f8fafc;
-  --muted: #94a3b8;
-  --accent: #6366f1;
-  --accent2: #f72585;
-  --accent3: #38bdf8;
-  --green: #10b981;
-  --yellow: #fbbf24;
-  --shadow: 0 10px 30px rgba(0,0,0,0.4);
-  --shadow-h: 0 20px 50px rgba(0,0,0,0.5);
+  --bg: #0f172a; --bg2: #1e293b; --card: #1e293b; --border: #334155;
+  --text: #f8fafc; --muted: #94a3b8; --accent: #6366f1; --accent2: #f72585;
+  --accent3: #38bdf8; --green: #10b981; --yellow: #fbbf24;
+  --shadow: 0 10px 30px rgba(0,0,0,0.4); --shadow-h: 0 20px 50px rgba(0,0,0,0.5);
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--text);font-family:'Plus Jakarta Sans',sans-serif;min-height:100vh;overflow-x:hidden}
+
+/* Language Toggle Logic */
+body.lang-en [data-th] { display: none; }
+body.lang-th [data-en] { display: none; }
 
 .blob{position:fixed;border-radius:50%;filter:blur(80px);pointer-events:none;z-index:0;animation:blobFloat 10s ease-in-out infinite}
 .blob-1{width:600px;height:600px;background:rgba(99,102,241,0.12);top:-150px;left:-150px}
@@ -33,13 +28,25 @@ body{background:var(--bg);color:var(--text);font-family:'Plus Jakarta Sans',sans
 .blob-3{width:400px;height:400px;background:rgba(247,37,133,0.06);bottom:0;left:30%;animation-delay:-8s}
 @keyframes blobFloat{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-20px,25px) scale(1.04)}}
 
-nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.2rem 3rem;background:rgba(15,23,42,0.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1rem 3rem;background:rgba(15,23,42,0.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
 .nav-logo{font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:800;background:linear-gradient(135deg,var(--accent),var(--accent3));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.nav-links{display:flex;gap:.4rem;list-style:none}
-.nav-links a{color:var(--muted);text-decoration:none;font-size:.85rem;font-weight:600;padding:.5rem 1rem;border-radius:100px;transition:all .3s}
-.nav-links a:hover{background:var(--accent);color:white}
 
-/* HERO — 2 column */
+.lang-switch {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 0.8rem;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.lang-switch:hover { border-color: var(--accent); background: var(--accent); }
+
 .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:7rem 2rem 5rem;position:relative;z-index:1}
 .hero-inner{max-width:1100px;width:100%;display:grid;grid-template-columns:1.2fr 0.8fr;gap:5rem;align-items:center}
 
@@ -48,22 +55,19 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 @keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.3);opacity:.5}}
 
 .hero-eyebrow{display:block;font-size:.8rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--accent3);margin-bottom:.8rem}
-.hero-name{font-family:'Syne',sans-serif;font-size:clamp(2.8rem,5.5vw,5rem);font-weight:800;line-height:1.05;letter-spacing:-2px;margin-bottom:1rem}
+.hero-name{font-family:'Syne',sans-serif;font-size:clamp(2.5rem,5vw,4.5rem);font-weight:800;line-height:1.05;letter-spacing:-2px;margin-bottom:1rem}
 .hero-name .hl{background:linear-gradient(135deg,var(--accent),var(--accent3));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 .hero-role{font-size:1rem;color:var(--muted);margin-bottom:2rem;line-height:1.75}
+
+.gpa-tag{display:inline-block;background:rgba(56,189,248,0.1);color:var(--accent3);padding:2px 10px;border-radius:6px;font-weight:700;margin-top:5px;border:1px solid rgba(56,189,248,0.2)}
+
 .hero-chips{display:flex;flex-wrap:wrap;gap:.7rem}
 .chip{display:inline-flex;align-items:center;gap:.55rem;background:var(--bg2);border:1.5px solid var(--border);border-radius:12px;padding:.6rem 1.2rem;font-size:.83rem;font-weight:600;color:var(--text);text-decoration:none;transition:all .3s}
 .chip:hover{background:var(--accent);border-color:var(--accent);transform:translateY(-3px);box-shadow:0 8px 24px rgba(99,102,241,.3)}
 .chip i{color:var(--accent3);font-size:.85rem}
-.chip:hover i{color:white}
 
-/* Photo — สี่เหลี่ยมใหญ่ */
-.hero-photo-wrap{display:flex;justify-content:center;align-items:center}
-.hero-photo{width:360px;height:450px;border-radius:28px;overflow:hidden;border:3px solid var(--border);box-shadow:0 24px 60px rgba(0,0,0,0.5),0 0 0 1px rgba(99,102,241,.15);position:relative}
+.hero-photo{width:360px;height:450px;border-radius:28px;overflow:hidden;border:3px solid var(--border);box-shadow:var(--shadow-h);position:relative}
 .hero-photo img{width:100%;height:100%;object-fit:cover;object-position:top}
-.hero-photo-placeholder{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;background:linear-gradient(135deg,var(--bg2),var(--border));color:var(--muted)}
-.hero-photo-placeholder span{font-size:5rem}
-.hero-photo-placeholder p{font-size:.85rem;font-weight:600;opacity:.6}
 
 .sw{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:6rem 2rem}
 .section-tag{display:inline-block;color:var(--accent3);font-size:.75rem;font-weight:800;letter-spacing:4px;text-transform:uppercase;margin-bottom:1rem}
@@ -72,78 +76,44 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 
 .about-card{background:var(--bg2);border:1px solid var(--border);border-radius:24px;padding:2.5rem;line-height:1.9;color:var(--muted);font-size:1.05rem;box-shadow:var(--shadow);position:relative;overflow:hidden}
 .about-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent3))}
-.about-card strong{color:var(--text)}
 
 .skills-block{margin-bottom:3.5rem}
 .skills-block-title{font-size:1rem;font-weight:800;margin-bottom:1.5rem;display:flex;align-items:center;gap:1rem;color:var(--text)}
 .skills-block-title::after{content:'';flex:1;height:1px;background:var(--border)}
 .skills-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(115px,1fr));gap:1.2rem}
-.skill-card{background:var(--bg2);border:1px solid var(--border);border-radius:20px;padding:1.8rem 1rem;display:flex;flex-direction:column;align-items:center;gap:.8rem;transition:all .3s;text-align:center;cursor:default;position:relative;overflow:hidden}
-.skill-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent3));transform:scaleX(0);transition:transform .3s;transform-origin:left}
-.skill-card:hover{border-color:rgba(99,102,241,.5);transform:translateY(-6px);background:rgba(255,255,255,.03);box-shadow:var(--shadow-h)}
-.skill-card:hover::after{transform:scaleX(1)}
+.skill-card{background:var(--bg2);border:1px solid var(--border);border-radius:20px;padding:1.8rem 1rem;display:flex;flex-direction:column;align-items:center;gap:.8rem;transition:all .3s;text-align:center}
+.skill-card:hover{border-color:var(--accent);transform:translateY(-6px);background:rgba(255,255,255,.03)}
 .skill-icon{width:46px;height:46px;display:flex;align-items:center;justify-content:center}
-.skill-icon svg{width:100%;height:100%;display:block}
 .skill-name{font-size:.78rem;font-weight:700;color:var(--muted)}
 
 .projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:2rem}
-.project-card{background:var(--bg2);border:1px solid var(--border);border-radius:24px;padding:2rem;transition:all .3s;display:flex;flex-direction:column;gap:1rem;box-shadow:var(--shadow);position:relative;overflow:hidden}
-.project-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent3));transform:scaleX(0);transition:transform .3s;transform-origin:left}
-.project-card:hover{transform:translateY(-8px);border-color:rgba(99,102,241,.4);box-shadow:var(--shadow-h)}
-.project-card:hover::before{transform:scaleX(1)}
-.project-top{display:flex;justify-content:space-between;align-items:flex-start}
-.project-emoji{font-size:2.5rem;line-height:1}
-.project-links-row{display:flex;gap:.5rem}
-.proj-btn{width:36px;height:36px;border-radius:10px;background:var(--bg);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--muted);text-decoration:none;font-size:.85rem;transition:all .2s}
-.proj-btn:hover{background:var(--accent);color:white;border-color:var(--accent)}
+.project-card{background:var(--bg2);border:1px solid var(--border);border-radius:24px;padding:2rem;transition:all .3s;display:flex;flex-direction:column;gap:1rem;box-shadow:var(--shadow)}
+.project-card:hover{transform:translateY(-8px);border-color:var(--accent)}
+.project-emoji{font-size:2.5rem}
 .project-name{font-weight:800;font-size:1.15rem;color:var(--text)}
 .project-desc{color:var(--muted);font-size:.92rem;line-height:1.65}
 .project-tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:auto}
-.ptag{background:rgba(99,102,241,0.12);color:var(--accent3);padding:.28rem .75rem;border-radius:8px;font-size:.7rem;font-weight:700;border:1px solid rgba(99,102,241,.2)}
-
-.add-card{background:transparent;border:2px dashed var(--border);border-radius:24px;padding:2rem;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;transition:.3s;min-height:220px;gap:.8rem}
-.add-card:hover{border-color:var(--accent);background:rgba(99,102,241,.05);transform:translateY(-5px)}
-.add-card .add-icon{width:52px;height:52px;border-radius:50%;background:rgba(99,102,241,.12);display:flex;align-items:center;justify-content:center;font-size:1.4rem;color:var(--accent);transition:.3s}
-.add-card:hover .add-icon{background:var(--accent);color:white}
-.add-card span{font-size:.9rem;font-weight:700;color:var(--muted)}
+.ptag{background:rgba(99,102,241,0.12);color:var(--accent3);padding:.28rem .75rem;border-radius:8px;font-size:.7rem;font-weight:700}
 
 .contact-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.5rem}
-.contact-card{background:var(--bg2);border:1px solid var(--border);border-radius:20px;padding:1.6rem;display:flex;align-items:center;gap:1.2rem;text-decoration:none;color:inherit;transition:all .3s;box-shadow:var(--shadow)}
-.contact-card:hover{border-color:var(--accent3);transform:translateX(8px);box-shadow:var(--shadow-h)}
-.contact-icon{width:52px;height:52px;background:var(--bg);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;color:var(--accent3);flex-shrink:0;border:1px solid var(--border)}
-.contact-label{font-size:.72rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:.2rem}
+.contact-card{background:var(--bg2);border:1px solid var(--border);border-radius:20px;padding:1.6rem;display:flex;align-items:center;gap:1.2rem;text-decoration:none;color:inherit;transition:all .3s}
+.contact-card:hover{border-color:var(--accent3);transform:translateX(8px)}
+.contact-icon{width:52px;height:52px;background:var(--bg);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;color:var(--accent3);border:1px solid var(--border)}
+.contact-label{font-size:.72rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px}
 .contact-val{font-size:.92rem;font-weight:700;color:var(--text)}
 
-.overlay{position:fixed;inset:0;background:rgba(0,0,0,0.85);backdrop-filter:blur(12px);z-index:200;display:none;place-items:center;padding:1rem}
-.overlay.on{display:grid}
-.modal{background:var(--bg2);border:1px solid var(--border);padding:2.5rem;border-radius:28px;width:100%;max-width:480px;position:relative;animation:popIn .35s cubic-bezier(.34,1.56,.64,1)}
-@keyframes popIn{from{transform:scale(.85) translateY(20px);opacity:0}to{transform:scale(1) translateY(0);opacity:1}}
-.modal-close{position:absolute;top:1.2rem;right:1.2rem;width:34px;height:34px;border-radius:10px;background:var(--bg);border:1px solid var(--border);cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.9rem;transition:.2s}
-.modal-close:hover{background:var(--accent2);color:white;border-color:var(--accent2)}
-.modal h3{font-family:'Syne',sans-serif;font-size:1.4rem;font-weight:800;margin-bottom:1.5rem}
-.fgroup{margin-bottom:1.1rem}
-.fgroup label{display:block;font-size:.75rem;font-weight:800;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:.45rem}
-.fgroup input,.fgroup textarea{width:100%;background:var(--bg);border:1.5px solid var(--border);border-radius:12px;padding:.8rem 1rem;font-family:'Plus Jakarta Sans',sans-serif;font-size:.95rem;color:var(--text);transition:border-color .2s;resize:vertical}
-.fgroup input:focus,.fgroup textarea:focus{outline:none;border-color:var(--accent)}
-.btn-add{width:100%;padding:1rem;background:linear-gradient(135deg,var(--accent),#4f46e5);border:none;border-radius:12px;color:white;font-family:'Plus Jakarta Sans',sans-serif;font-size:1rem;font-weight:800;cursor:pointer;margin-top:.5rem;transition:.2s;box-shadow:0 4px 20px rgba(99,102,241,.35)}
-.btn-add:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(99,102,241,.45)}
-
 footer{padding:3rem 2rem;text-align:center;color:var(--muted);border-top:1px solid var(--border);font-size:.9rem}
-footer span{color:var(--accent)}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
 
 @media(max-width:900px){
   .hero-inner{grid-template-columns:1fr;text-align:center;justify-items:center}
-  .hero-photo-wrap{order:-1}
   .hero-photo{width:280px;height:340px}
-  .hero-chips{justify-content:center}
   nav{padding:1rem 1.5rem}
-  .nav-links a{padding:.4rem .7rem;font-size:.78rem}
 }
-.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
-.reveal.visible{opacity:1;transform:translateY(0)}
 </style>
 </head>
-<body>
+<body class="lang-th"> <!-- Default language -->
 
 <div class="blob blob-1"></div>
 <div class="blob blob-2"></div>
@@ -151,249 +121,191 @@ footer span{color:var(--accent)}
 
 <nav>
   <div class="nav-logo">THINNAWUT.DEV</div>
-  <!-- <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul> -->
+  <button class="lang-switch" onclick="toggleLang()">
+    <i class="fa fa-globe"></i>
+    <span data-th>English</span>
+    <span data-en>ภาษาไทย</span>
+  </button>
 </nav>
 
 <section class="hero">
   <div class="hero-inner">
-    <!-- ข้อความซ้าย -->
     <div class="hero-content">
-      <div class="status-badge"><span class="status-dot"></span> Open to work / ฝึกงาน</div>
+      <div class="status-badge">
+        <span class="status-dot"></span> 
+        <span data-th>Open to work / ฝึกงาน</span>
+        <span data-en>Open to Work / Internship</span>
+      </div>
       <span class="hero-eyebrow">✦ Front-end Developer · UX/UI · IT Support</span>
-      <h1 class="hero-name"><span class="hl">นาย ทินวุฒิ</span><br>พลบำรุง</h1>
-      <p class="hero-role">นักศึกษาสาขาวิทยาการคอมพิวเตอร์<br>คณะวิทยาศาสตร์และวิศวกรรมศาสตร์<br>ม.เกษตรศาสตร์ วข.เฉลิมพระเกียรติ จ.สกลนคร</p>
+      
+      <h1 class="hero-name" data-th><span class="hl">นาย ทินวุฒิ</span><br>พลบำรุง</h1>
+      <h1 class="hero-name" data-en><span class="hl">Thinnawut</span><br>Pholbumrung</h1>
+      
+      <div class="hero-role">
+        <p data-th>
+          นักศึกษาสาขาวิทยาการคอมพิวเตอร์ (รุ่น KU82 / CIS17)<br>
+          คณะวิทยาศาสตร์และวิศวกรรมศาสตร์ ม.เกษตรศาสตร์ วข.เฉลิมพระเกียรติ<br>
+          <span class="gpa-tag">เกรดเฉลี่ย (GPA): 2.56</span>
+        </p>
+        <p data-en>
+          Computer Science Student (Class KU82 / CIS17)<br>
+          Faculty of Science and Engineering, Kasetsart University CSC.<br>
+          <span class="gpa-tag">GPA: 2.56</span>
+        </p>
+      </div>
+
       <div class="hero-chips">
         <a class="chip" href="mailto:thinnawut0026@gmail.com"><i class="fa fa-envelope"></i> thinnawut0026@gmail.com</a>
         <a class="chip" href="tel:+66967501732"><i class="fa fa-phone"></i> 096-750-1732</a>
         <a class="chip" href="https://github.com/thinnawut12-05" target="_blank"><i class="fab fa-github"></i> thinnawut12-05</a>
-        <a class="chip" href="#"><i class="fa fa-map-marker-alt"></i> บึงกาฬ, ไทย</a>
       </div>
     </div>
 
-    <!-- รูปสี่เหลี่ยมขวา -->
     <div class="hero-photo-wrap">
       <div class="hero-photo">
-        <!-- 🔴 เปลี่ยนเป็น: <img src="photo.jpg" alt="ทินวุฒิ พลบำรุง"> -->
-        <img src="DSCF2855 (1).jpg" alt="ทินวุฒิ พลบำรุง" onerror="this.parentElement.innerHTML='<div class=hero-photo-placeholder><span>👨‍💻</span><p>ใส่รูปของคุณที่นี่</p></div>'">
+        <img src="DSCF2855 (1).jpg" alt="ทินวุฒิ พลบำรุง" onerror="this.parentElement.innerHTML='<div style=\'height:100%;display:flex;align-items:center;justify-content:center;background:var(--bg2);color:var(--muted)\'>👨‍💻 Photo</div>'">
       </div>
     </div>
   </div>
 </section>
 
 <!-- ABOUT -->
-<div class="sw" id="about">
+<div class="sw">
   <span class="section-tag reveal">✦ 01 / About Me</span>
-  <h2 class="section-title reveal">เกี่ยวกับ<span> ผม</span></h2>
+  <h2 class="section-title reveal" data-th>เกี่ยวกับ<span> ผม</span></h2>
+  <h2 class="section-title reveal" data-en>About<span> Me</span></h2>
+  
   <div class="about-card reveal">
-    สวัสดีครับ! ผม <strong>นาย ทินวุฒิ พลบำรุง</strong> นักศึกษาสาขาวิทยาการคอมพิวเตอร์ คณะวิทยาศาสตร์และวิศวกรรมศาสตร์ มหาวิทยาลัยเกษตรศาสตร์ วิทยาเขตเฉลิมพระเกียรติ จังหวัดสกลนคร
-    มีความสนใจในการพัฒนาเว็บแอปพลิเคชันทั้ง Frontend และ Tester และงาน UX/UI รวมถึงงาน IT Support
-    ชอบเรียนรู้เทคโนโลยีใหม่ๆ และได้พัฒนาโปรเจกต์จริงในระหว่างการศึกษา ตั้งแต่ระบบจองห้องพัก ระบบลงเวลางาน ไปจนถึงเกม Snake ด้วย Python
-    ปัจจุบันกำลังมองหาโอกาสฝึกงานหรือทำงานในตำแหน่ง UX/UI หรือ Tester ครับ
-    <br><br>
-    <strong>📍 ที่อยู่:</strong> 212/10 ตำบลหนองพันทา อำเภอโซ่พิสัย จังหวัดบึงกาฬ 38170
+    <div data-th>
+      สวัสดีครับ! ผม <strong>นาย ทินวุฒิ พลบำรุง</strong> นักศึกษาสาขาวิทยาการคอมพิวเตอร์ <strong>รุ่น KU82 (CIS17)</strong> มหาวิทยาลัยเกษตรศาสตร์ 
+      มีความสนใจในการพัฒนาเว็บแอปพลิเคชัน (Frontend), งาน Tester, UX/UI และ IT Support 
+      ปัจจุบันเรียนจบด้วย <strong>เกรดเฉลี่ย 2.56</strong> ผมชอบเรียนรู้เทคโนโลยีใหม่ๆ และพร้อมที่จะพัฒนาตนเองในสภาพแวดล้อมการทำงานจริงครับ
+      <br><br>
+      <strong>📍 ที่อยู่:</strong> 212/10 ต.หนองพันทา อ.โซ่พิสัย จ.บึงกาฬ 38170
+    </div>
+    <div data-en>
+      Hello! I'm <strong>Thinnawut Pholbumrung</strong>, a Computer Science student, <strong>Class KU82 (CIS17)</strong> at Kasetsart University.
+      I'm interested in Frontend Development, Software Testing, UX/UI Design, and IT Support.
+      Graduated with a <strong>GPA of 2.56</strong>, I am eager to learn new technologies and ready to grow in a professional environment.
+      <br><br>
+      <strong>📍 Address:</strong> 212/10 Nong Phan Tha, So Phisai, Bueng Kan, 38170
+    </div>
   </div>
 </div>
 
-<!-- SKILLS -->
-
-<div class="sw" id="skills">
+<!-- SKILLS (หัวข้อ) -->
+<div class="sw">
   <div class="section-tag reveal">✦ 02 / Skills</div>
-  <h2 class="section-title reveal">ทักษะ &amp;<span> เครื่องมือ</span></h2>
+  <h2 class="section-title reveal" data-th>ทักษะ &amp;<span> เครื่องมือ</span></h2>
+  <h2 class="section-title reveal" data-en>Skills &amp;<span> Tools</span></h2>
 
   <div class="skills-block reveal">
-    <div class="skills-block-title">🖥️ ทักษะภาษา (Languages)</div>
+    <div class="skills-block-title">
+      <span data-th>🖥️ ทักษะภาษา (Languages)</span>
+      <span data-en>🖥️ Programming Languages</span>
+    </div>
     <div class="skills-grid">
-      <div class="skill-card">
-        <svg class="skill-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 361"><path fill="#E44D26" d="m255.555 70.766l-23.241 260.36l-104.47 28.962l-104.182-28.922L.445 70.766z"/><path fill="#F16529" d="m128 337.95l84.417-23.403l19.86-222.49H128z"/><path fill="#EBEBEB" d="M82.82 155.932H128v-31.937H47.917l.764 8.568l7.85 88.01H128v-31.937H85.739zm7.198 80.61h-32.06l4.474 50.146l65.421 18.16l.147-.04V271.58l-.14.037l-35.568-9.604z"/><path d="M24.18 0h16.23v16.035h14.847V0h16.231v48.558h-16.23v-16.26H40.411v16.26h-16.23V0M92.83 16.103H78.544V0h44.814v16.103h-14.295v32.455h-16.23V16.103zM130.47 0h16.923l10.41 17.062L168.203 0h16.93v48.558h-16.164V24.49l-11.166 17.265h-.28L146.35 24.49v24.068h-15.88zm62.74 0h16.235v32.508h22.824v16.05h-39.06z"/><path fill="#FFF" d="M127.89 220.573h39.327l-3.708 41.42l-35.62 9.614v33.226l65.473-18.145l.48-5.396l7.506-84.08l.779-8.576H127.89zm0-64.719v.078h77.143l.64-7.178l1.456-16.191l.763-8.568H127.89z"/></svg>
-        <span class="skill-name">HTML</span>
-      </div>
-      <div class="skill-card">
-        <svg class="skill-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 361"><path fill="#264DE4" d="M127.844 360.088L23.662 331.166L.445 70.766h255.11l-23.241 260.36z"/><path fill="#2965F1" d="m212.417 314.547l19.86-222.49H128V337.95z"/><path fill="#EBEBEB" d="m53.669 188.636l2.862 31.937H128v-31.937zm-5.752-64.641l2.903 31.937H128v-31.937zM128 271.58l-.14.037l-35.568-9.604l-2.274-25.471h-32.06l4.474 50.146l65.421 18.16l.147-.04z"/><path d="M60.484 0h38.68v16.176H76.66v16.176h22.506v16.175H60.484zm46.417 0h38.681v14.066h-22.505v2.813h22.505v32.352h-38.68V34.46h22.505v-2.813H106.9zm46.418 0H192v14.066h-22.505v2.813H192v32.352h-38.681V34.46h22.505v-2.813H153.32z"/><path fill="#FFF" d="m202.127 188.636l5.765-64.641H127.89v31.937h45.002l-2.906 32.704H127.89v31.937h39.327l-3.708 41.42l-35.62 9.614v33.226l65.473-18.145l.48-5.396l7.506-84.08z"/></svg>
-        <span class="skill-name">CSS</span>
-      </div>
-      <div class="skill-card">
-        <svg class="skill-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><path fill="#F7DF1E" d="M0 0h256v256H0z"/><path d="m67.312 213.932l19.59-11.856c3.78 6.701 7.218 12.371 15.465 12.371c7.905 0 12.89-3.092 12.89-15.12v-81.798h24.057v82.138c0 24.917-14.606 36.259-35.916 36.259c-19.245 0-30.416-9.967-36.087-21.996m85.07-2.576l19.588-11.341c5.157 8.421 11.859 14.607 23.715 14.607c9.969 0 16.325-4.984 16.325-11.858c0-8.248-6.53-11.17-17.528-15.98l-6.013-2.58c-17.357-7.387-28.87-16.667-28.87-36.257c0-18.044 13.747-31.792 35.228-31.792c15.294 0 26.292 5.328 34.196 19.247l-18.732 12.03c-4.125-7.389-8.591-10.31-15.465-10.31c-7.046 0-11.514 4.468-11.514 10.31c0 7.217 4.468 10.14 14.778 14.608l6.014 2.577c20.45 8.765 31.963 17.7 31.963 37.804c0 21.654-17.012 33.51-39.867 33.51c-22.339 0-36.774-10.654-43.819-24.574"/></svg>
-        <span class="skill-name">JavaScript</span>
-      </div>
-      <div class="skill-card">
-        <svg class="skill-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 255"><defs><linearGradient id="SVGsGm35cjP" x1="12.959%" x2="79.639%" y1="12.039%" y2="78.201%"><stop offset="0%" stop-color="#387EB8"/><stop offset="100%" stop-color="#366994"/></linearGradient><linearGradient id="SVGSvQaLchT" x1="19.128%" x2="90.742%" y1="20.579%" y2="88.429%"><stop offset="0%" stop-color="#FFE052"/><stop offset="100%" stop-color="#FFC331"/></linearGradient></defs><path fill="url(#SVGsGm35cjP)" d="M126.916.072c-64.832 0-60.784 28.115-60.784 28.115l.072 29.128h61.868v8.745H41.631S.145 61.355.145 126.77c0 65.417 36.21 63.097 36.21 63.097h21.61v-30.356s-1.165-36.21 35.632-36.21h61.362s34.475.557 34.475-33.319V33.97S194.67.072 126.916.072M92.802 19.66a11.12 11.12 0 0 1 11.13 11.13a11.12 11.12 0 0 1-11.13 11.13a11.12 11.12 0 0 1-11.13-11.13a11.12 11.12 0 0 1 11.13-11.13"/><path fill="url(#SVGSvQaLchT)" d="M128.757 254.126c64.832 0 60.784-28.115 60.784-28.115l-.072-29.127H127.6v-8.745h86.441s41.486 4.705 41.486-60.712c0-65.416-36.21-63.096-36.21-63.096h-21.61v30.355s1.165 36.21-35.632 36.21h-61.362s-34.475-.557-34.475 33.32v56.013s-5.235 33.897 62.518 33.897m34.114-19.586a11.12 11.12 0 0 1-11.13-11.13a11.12 11.12 0 0 1 11.13-11.131a11.12 11.12 0 0 1 11.13 11.13a11.12 11.12 0 0 1-11.13 11.13"/></svg>
-        <span class="skill-name">Python</span>
-      </div>
-      <div class="skill-card">
-        <svg class="skill-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 135"><defs><radialGradient id="SVGJUxgBb3l" cx=".837" cy="-125.811" r="363.057" gradientTransform="translate(76.464 81.918)scale(.463)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#FFF"/><stop offset=".5" stop-color="#4C6B97"/><stop offset="1" stop-color="#231F20"/></radialGradient></defs><ellipse cx="128" cy="67.3" fill="url(#SVGJUxgBb3l)" rx="128" ry="67.3"/><ellipse cx="128" cy="67.3" fill="#6181B6" rx="123" ry="62.3"/><path fill="#FFF" d="m152.9 87.5l6.1-31.4c1.4-7.1.2-12.4-3.4-15.7c-3.5-3.2-9.5-4.8-18.3-4.8h-10.6l3-15.6c.1-.6 0-1.2-.4-1.7s-.9-.7-1.5-.7h-14.6c-1 0-1.8.7-2 1.6l-6.5 33.3c-.6-3.8-2-7-4.4-9.6c-4.3-4.9-11-7.4-20.1-7.4H52.1c-1 0-1.8.7-2 1.6L37 104.7c-.1.6 0 1.2.4 1.7s.9.7 1.5.7h14.7c1 0 1.8-.7 2-1.6l3.2-16.3h10.9c5.7 0 10.6-.6 14.3-1.8q5.85-1.95 10.5-6.3c2.5-2.3 4.6-4.9 6.2-7.7l-2.6 13.5c-.1.6 0 1.2.4 1.7s.9.7 1.5.7h14.6c1 0 1.8-.7 2-1.6l7.2-37h10c4.3 0 5.5.8 5.9 1.2c.3.3.9 1.5.2 5.2L134.1 87c-.1.6 0 1.2.4 1.7s.9.7 1.5.7h15c.9-.3 1.7-1 1.9-1.9m-67.6-26c-.9 4.7-2.6 8.1-5.1 10s-6.6 2.9-12 2.9h-6.5l4.7-24.2h8.4c6.2 0 8.7 1.3 9.7 2.4c1.3 1.6 1.6 4.7.8 8.9m130-18.6c-4.3-4.9-11-7.4-20.1-7.4h-28.3c-1 0-1.8.7-2 1.6l-13.1 67.5c-.1.6 0 1.2.4 1.7s.9.7 1.5.7h14.7c1 0 1.8-.7 2-1.6l3.2-16.3h10.9c5.7 0 10.6-.6 14.3-1.8q5.85-1.95 10.5-6.3c2.6-2.4 4.8-5.1 6.4-8s2.8-6.1 3.5-9.6c1.7-8.7.4-15.5-3.9-20.5M200 61.5c-.9 4.7-2.6 8.1-5.1 10s-6.6 2.9-12 2.9h-6.5l4.7-24.2h8.4c6.2 0 8.7 1.3 9.7 2.4c1.4 1.6 1.7 4.7.8 8.9"/><path fill="#000004" d="M74.8 48.2c5.6 0 9.3 1 11.2 3.1s2.3 5.6 1.3 10.6c-1 5.2-3 9-5.9 11.2q-4.35 3.3-13.2 3.3h-8.9l5.5-28.2zM39 105h14.7l3.5-17.9h12.6c5.6 0 10.1-.6 13.7-1.8s6.8-3.1 9.8-5.9q3.75-3.45 6-7.5c1.5-2.7 2.6-5.7 3.2-9c1.6-8 .4-14.2-3.5-18.7s-10.1-6.7-18.6-6.7H52.1zm74.3-85.4h14.6l-3.5 17.9h13c8.2 0 13.8 1.4 16.9 4.3s4 7.5 2.8 13.9L151 87.1h-14.8l5.8-29.9c.7-3.4.4-5.7-.7-6.9s-3.6-1.9-7.3-1.9h-11.7l-7.5 38.7h-14.6zm76.2 28.6c5.6 0 9.3 1 11.2 3.1s2.3 5.6 1.3 10.6c-1 5.2-3 9-5.9 11.2q-4.35 3.3-13.2 3.3H174l5.5-28.2zM153.7 105h14.7l3.5-17.9h12.6c5.6 0 10.1-.6 13.7-1.8s6.8-3.1 9.8-5.9q3.75-3.45 6-7.5c1.5-2.7 2.6-5.7 3.2-9c1.6-8 .4-14.2-3.5-18.7s-10.1-6.7-18.6-6.7h-28.3z"/></svg>
-        <span class="skill-name">PHP</span>
-      </div>
-      <div class="skill-card">
-        <svg class="skill-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 349"><path fill="#00758F" d="m152.31 230.297l15.56 50.487c3.496 11.463 4.954 19.465 4.37 24.026q12.765-34.188 17.839-74.513h18.71q-12.069 65.65-31.827 95.41c-10.262 15.289-21.504 22.933-33.746 22.933c-3.264 0-7.288-.986-12.063-2.944v-10.55c2.333.342 5.07.525 8.218.525q8.565-.002 13.816-4.742c4.193-3.849 6.292-8.175 6.292-12.97c0-3.274-1.637-9.993-4.896-20.157l-21.68-67.505zM33.223 199.266l28.5 86.956h.176l28.675-86.956h23.428c5.13 43.124 8.16 82.581 9.09 118.346H103.34q-1.044-50.148-5.768-94.32H97.4l-30.078 94.32H52.28l-29.896-94.32h-.176q-3.325 42.422-4.196 94.32H0c1.164-42.08 4.077-81.525 8.739-118.346z"/><path fill="#F29111" d="M352.498 197.51c30.657 0 45.986 19.586 45.986 58.739c0 21.276-4.61 37.347-13.821 48.204c-1.66 1.984-3.495 3.698-5.427 5.286l21.695 10.727l-.021-.001l-7.703 13.302l-28.253-16.485q-7.026 2.08-15.451 2.08c-15.053 0-26.297-4.387-33.731-13.15c-8.16-9.694-12.238-24.955-12.238-45.757c0-21.156 4.602-37.166 13.816-48.037c8.392-9.944 20.11-14.909 35.148-14.909m-93.88.172c10.957 0 20.92 2.932 29.894 8.775l-4.558 10.157c-7.679-3.264-15.25-4.903-22.716-4.903c-6.058 0-10.726 1.458-13.98 4.392c-3.272 2.908-5.296 6.65-5.296 11.212c0 7.01 4.994 13.089 14.215 18.225a816 816 0 0 1 9.031 5.011l.688.387l.345.194l.689.387l.344.194l.688.388c6.98 3.935 13.548 7.691 13.548 7.691c9.22 6.545 13.816 13.523 13.816 25.016c0 10.037-3.678 18.276-11.01 24.723c-7.337 6.418-17.194 9.636-29.538 9.636c-11.545 0-22.734-3.704-33.572-11.05l5.07-10.166c9.327 4.675 17.767 7.01 25.346 7.01c7.108 0 12.672-1.587 16.697-4.721c4.017-3.157 6.424-7.56 6.424-13.143c0-7.027-4.888-13.034-13.855-18.073a898 898 0 0 1-8.395-4.697l-.687-.389c-1.262-.713-2.533-1.435-3.778-2.142l-.675-.384c-6.055-3.444-11.29-6.453-11.29-6.453c-8.964-6.557-13.459-13.592-13.459-25.184c0-9.587 3.352-17.336 10.046-23.231q10.066-8.862 25.968-8.862m175.895 1.584v103.788h37.238v14.558h-56.124V199.266zm57.93 103.833v2.46h-4.094v12.04h-3.13v-12.04h-4.253v-2.46zm7.56 0l3.931 9.884l3.611-9.884h4.437v14.5h-2.95v-11.035l-4.11 11.035h-2.127l-4.117-11.035h-.158v11.035h-2.791v-14.5zM350.57 212.064c-18.066 0-27.104 14.91-27.104 44.71c0 17.07 2.395 29.448 7.176 37.163c4.428 7.14 11.363 10.703 20.806 10.703c18.066 0 27.103-15.026 27.103-45.064c0-16.831-2.395-29.103-7.17-36.822c-4.433-7.124-11.365-10.69-20.81-10.69"/><path fill="#00758F" d="M303.218 7.333c5.993-14.726 26.948-3.574 35.08 1.57c1.993 1.287 4.279 4.006 6.564 5.011c3.565.14 7.127.419 10.698.568c6.698 1.574 12.972 2.86 18.25 5.866c24.528 14.445 40.495 29.165 55.19 53.479c3.14 5.15 4.709 10.723 7.274 16.296c3.56 8.307 7.56 17.027 11.692 24.882c1.85 3.724 3.281 7.865 5.85 11.01c1.003 1.438 3.852 1.862 5.555 2.721c4.708 2.437 10.412 4.287 14.84 7.147c8.269 5.156 16.264 11.3 23.532 17.59c2.709 2.428 4.555 5.865 7.136 8.433v1.296c-2.291.703-4.574 1.423-6.859 2c-4.991 1.282-9.412.992-14.254 2.275c-2.992.868-6.707 2.013-9.845 2.304l.29.292c1.846 5.275 11.834 9.565 16.402 12.72c5.548 4.004 10.689 8.86 14.827 14.437c1.429 1.423 2.858 2.718 4.28 4.137c.994 1.438 1.274 3.298 2.28 4.58v.434c-1.114-.393-1.915-1.143-2.674-1.927l-.453-.473c-.453-.47-.91-.932-1.431-1.313c-3.148-2.15-6.274-4.722-9.422-6.721c-5.412-3.434-11.689-5.427-17.246-8.874c-3.142-2.001-6.137-4.28-9.132-6.57c-2.715-2.007-5.705-5.861-7.411-8.721c-1.005-1.58-1.143-3.437-2.291-4.58c.205-1.909 1.954-2.476 3.719-2.942l.406-.107c.609-.158 1.205-.316 1.725-.525c7.414-3.148 16.253-4.29 27.667-4.004c-.43-2.866-7.562-6.437-9.839-8.153c-4.57-3.294-9.409-6.731-14.257-9.729c-2.569-1.57-6.996-2.716-9.842-3.999c-3.851-1.574-12.41-3.147-14.544-6.145c-3.625-4.726-6.229-10.363-8.757-16.057l-.688-1.554l-.69-1.553c-2.988-6.857-6.7-14.006-9.695-21.027c-1.566-3.425-2.285-6.431-4-9.716c-10.407-20.158-25.81-37.035-44.485-48.904c-6.137-3.862-12.98-7.436-20.534-9.865c-4.281-1.293-9.419-.578-13.98-1.57h-3.002c-2.562-.722-4.701-3.438-6.7-4.87c-4.415-2.998-8.837-5.011-14.117-7.15c-1.85-.858-7.133-2.856-8.977-1.283c-1.142.287-1.721.718-2.002 1.864c-1.136 1.71-.137 4.286.57 5.863c2.142 4.57 5.134 7.286 7.85 11.148c2.416 3.425 5.417 7.287 7.13 11.011c3.696 8.005 5.417 16.874 8.842 24.878c1.27 3.01 3.279 6.435 5.128 9.15c1.567 2.155 4.416 3.713 5.278 6.441c1.718 2.86-2.572 12.297-3.565 15.294c-3.715 11.727-2.995 28.028 1.283 38.193l.228.536l.228.543c1.562 3.723 3.234 7.732 7.387 8.773c.286-.284 0-.135.567-.284c1.005-7.868 1.288-15.445 4-21.601c1.567-3.849 4.696-6.57 6.841-9.712c1.43.856 1.43 3.437 2.282 5.145c1.856 4.43 3.849 9.287 6.137 13.73c4.696 9.15 9.98 18.021 15.967 26.025c2.005 2.859 4.85 6.006 7.416 8.581c1.143.997 2.423 1.573 3.282 2.856h.28v.432c-4.278-1.577-6.99-6.003-10.402-8.587c-6.424-4.857-14.117-12.151-18.545-19.15c-1.852-4.018-3.854-7.869-5.85-11.867v-.289c-.853 1.142-.567 2.276-.994 4.004c-1.852 7.145-.426 15.296-6.843 17.866c-7.274 3.01-12.7-4.857-14.977-8.432c-7.276-11.866-9.269-31.884-4.138-48.043c1.14-3.577 1.295-7.867 3.285-10.723c-.43-2.582-2.42-3.288-3.571-4.87c-1.996-2.704-3.705-5.854-5.268-8.857c-3.002-5.866-5.138-12.875-7.417-19.166c-1.002-2.569-1.289-5.148-2.288-7.58c-1.704-3.712-4.845-7.436-7.268-10.72c-3.281-4.72-12.837-13.868-8.985-23.168m46.772 28.015c.381.382.841.716 1.317 1.045l.574.394c.765.53 1.506 1.088 1.96 1.848c.72 1.006.854 1.999 1.716 3.007c0 3.437-.996 5.722-3.007 7.146c0 0-.137.15-.278.29c-1.14-2.291-2.139-4.57-3.287-6.859c-1.414-1.998-3.413-3.583-4.565-5.866h-.277v-.287c1.721-.425 3.428-.718 5.847-.718"/></svg>
-        <span class="skill-name">SQL</span>
-      </div>
+      <div class="skill-card"><span class="skill-name">HTML / CSS</span></div>
+      <div class="skill-card"><span class="skill-name">JavaScript</span></div>
+      <div class="skill-card"><span class="skill-name">Python</span></div>
+      <div class="skill-card"><span class="skill-name">PHP</span></div>
+      <div class="skill-card"><span class="skill-name">SQL</span></div>
     </div>
   </div>
 
   <div class="skills-block reveal">
-    <div class="skills-block-title">🔧 เครื่องมือ (Tools)</div>
+    <div class="skills-block-title">
+      <span data-th>🔧 เครื่องมือ (Tools)</span>
+      <span data-en>🔧 Tools & Platforms</span>
+    </div>
     <div class="skills-grid">
-      <div class="skill-card">
-        <svg class="skill-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 255"><path fill="#464342" d="M18.124 127.5c0 43.296 25.16 80.711 61.646 98.442L27.594 82.986a109 109 0 0 0-9.47 44.514m183.221-5.52c0-13.517-4.856-22.879-9.02-30.165c-5.545-9.01-10.742-16.64-10.742-25.65c0-10.055 7.626-19.415 18.368-19.415c.485 0 .944.06 1.417.088c-19.46-17.829-45.387-28.714-73.863-28.714c-38.213 0-71.832 19.606-91.39 49.302c2.566.077 4.984.13 7.039.13c11.44 0 29.15-1.387 29.15-1.387c5.897-.348 6.592 8.312.702 9.01c0 0-5.926.697-12.52 1.042L100.32 194.7l23.937-71.79l-17.042-46.692c-5.89-.345-11.47-1.042-11.47-1.042c-5.894-.346-5.203-9.358.691-9.01c0 0 18.064 1.388 28.811 1.388c11.44 0 29.151-1.388 29.151-1.388c5.9-.348 6.594 8.312.702 9.01c0 0-5.938.697-12.52 1.042l39.529 117.581l10.91-36.458c4.728-15.129 8.327-25.995 8.327-35.36m-71.921 15.088l-32.818 95.363a109.4 109.4 0 0 0 30.899 4.456c12.737 0 24.952-2.202 36.323-6.2a9.6 9.6 0 0 1-.779-1.507zm94.058-62.045a84 84 0 0 1 .737 11.247c0 11.1-2.073 23.577-8.317 39.178l-33.411 96.6c32.518-18.963 54.39-54.193 54.39-94.545c.002-19.017-4.856-36.9-13.4-52.48M127.505 0C57.2 0 0 57.196 0 127.5c0 70.313 57.2 127.507 127.505 127.507c70.302 0 127.51-57.194 127.51-127.507C255.014 57.196 197.808 0 127.506 0m0 249.163c-67.08 0-121.659-54.578-121.659-121.663c0-67.08 54.576-121.654 121.659-121.654c67.078 0 121.652 54.574 121.652 121.654c0 67.085-54.574 121.663-121.652 121.663"/></svg>
-        <span class="skill-name">WordPress</span>
-      </div>
-      <div class="skill-card">
-        <svg class="skill-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 384"><path fill="#0ACF83" d="M64 384c35.328 0 64-28.672 64-64v-64H64c-35.328 0-64 28.672-64 64s28.672 64 64 64"/><path fill="#A259FF" d="M0 192c0-35.328 28.672-64 64-64h64v128H64c-35.328 0-64-28.672-64-64"/><path fill="#F24E1E" d="M0 64C0 28.672 28.672 0 64 0h64v128H64C28.672 128 0 99.328 0 64"/><path fill="#FF7262" d="M128 0h64c35.328 0 64 28.672 64 64s-28.672 64-64 64h-64z"/><path fill="#1ABCFE" d="M256 192c0 35.328-28.672 64-64 64s-64-28.672-64-64s28.672-64 64-64s64 28.672 64 64"/></svg>
-        <span class="skill-name">Figma</span>
-      </div>
-      <div class="skill-card">
-        <svg class="skill-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128"><g fill="#00c4cc"><path d="M59.39.152c-.484.051-1.995.23-3.328.387c-5.374.613-11.468 2.227-16.816 4.48C19.891 13.106 5.324 30.849 1.305 51.2C.359 56.04.129 58.418.129 64c0 7.195.715 12.16 2.61 18.434c6.195 20.53 22.323 36.632 42.906 42.851c6.195 1.871 11.187 2.586 18.355 2.586c7.195 0 12.16-.715 18.434-2.61c20.53-6.195 36.632-22.323 42.851-42.906c1.871-6.195 2.586-11.187 2.586-18.355c0-3.047-.152-6.527-.332-7.809c-2.074-14.796-8.168-27.238-18.328-37.402C99.07 8.703 86.68 2.586 72.19.512c-1.996-.282-11.238-.54-12.8-.36m-20.863 40.32c1.36.41 1.996.794 2.918 1.715c1.793 1.82 2.203 2.817 2.203 5.555c0 2.051-.078 2.434-.691 3.508c-1.18 1.996-3.918 3.84-5.812 3.89c-1.333.028-1.278-.562.18-2.097c1.945-2.023 2.226-2.79 2.226-5.813c-.024-2.917-.383-3.914-1.739-4.734c-1.128-.691-2.355-.64-4.148.203c-4.66 2.23-9.703 9.653-11.672 17.258c-2.613 10.137 2.02 18.25 9.649 16.867c2.226-.41 6.425-2.558 8.246-4.25c1.508-1.379 1.508-1.406 1.66-3.12c.336-3.587 2.867-7.169 6.25-8.833c1.558-.77 1.945-.844 4.043-.844c1.996 0 2.457.102 3.43.637c3.097 1.77 2.457 5.89-.895 5.89c-1.945 0-2.945-1-1.535-1.534c1.383-.512.867-2.434-.742-2.868c-1.895-.488-4.047.793-5.403 3.25c-1.64 2.97-1.715 6.504-.156 8.114c1.512 1.613 3.406.336 4.867-3.329c.766-1.867 1.867-2.867 3.149-2.867c1.125 0 1.332.692.843 2.793c-.718 3.25-.23 4.094 1.793 3.098c.664-.309 1.766-1.023 2.43-1.535l1.254-1l.848-4.43c.922-4.965 1.277-5.633 3.172-5.988c1.82-.336 2.23.562 1.562 3.402l-.36 1.59l1.333-1.36c3.148-3.226 7.015-4.812 8.347-3.48c.715.715.637 1.613-.386 4.785c-.485 1.512-1.153 3.895-1.457 5.25c-.461 2.047-.489 2.535-.23 2.868c.82.972 3.327-.028 5.554-2.204l1.305-1.277l.156-2.844c.152-3.277.457-4.453 1.328-5.504c.82-.972 2.305-1.687 3.098-1.484c.793.207.793.973.078 3.227c-1 3.097-.895 10.238.129 10.238c.41 0 2.507-2.2 3.84-4.043l.996-1.36l-.793-.816c-1.383-1.46-1.715-2.406-1.715-4.789c0-1.738.129-2.379.562-3.227c.719-1.328 1.844-2.3 3.176-2.687c1.406-.434 3.148.281 3.863 1.562c.719 1.305.54 4.223-.383 6.223l-.664 1.457h.895c1.23 0 1.715-.305 3.918-2.379c1.152-1.101 2.484-2.05 3.48-2.511c3.918-1.84 8.528-.895 9.293 1.921c.64 2.254-.765 3.84-3.226 3.66c-1.766-.128-2.098-.59-1.074-1.456c1.843-1.54 0-3.508-2.637-2.793c-1.434.386-3.047 1.996-3.89 3.867c-1.692 3.738-.794 8.14 1.636 8.14c.973 0 2.691-1.921 3.355-3.789c.793-2.152 2.457-3.507 3.711-3.02c.692.255.743.946.309 3.122c-.488 2.383-.563 4.61-.18 5.633c.153.382.614 1.101 1.051 1.586c.816.921.844 1.254.152 1.691c-.332.23-.77.129-1.843-.46c-1.485-.77-2.766-2.153-3.227-3.458l-.281-.766l-1.024.766c-.59.41-1.511.871-2.047 1.023c-2.125.563-4.738-.894-5.964-3.351c-.489-.95-.641-3.738-.282-4.813c.204-.59.204-.59-.617-.18c-.433.231-1.355.485-2.07.563c-1.18.13-1.36.258-2.535 1.742c-1.664 2.07-4.61 4.864-5.813 5.454c-2.558 1.277-3.402.918-4.07-1.72l-.461-1.765l-1.102.973c-1.406 1.23-4.222 2.715-5.836 3.074c-1.535.332-3.175-.156-3.84-1.18c-.995-1.535-.663-4.785.922-9.164c1.176-3.25.333-3.3-2.636-.203c-2.203 2.328-3.149 3.992-3.762 6.578c-.64 2.688-1.41 3.66-3.148 4.07c-1.051.231-1.54-.41-1.332-1.816l.152-1.129l-.973.668c-1.383.946-3.125 1.817-4.328 2.149s-2.789-.024-3.172-.692c-.691-1.175-.691-1.175-1.765-.332c-2.332 1.895-5.66 1.356-7.348-1.152l-.54-.793l-1.687 1.562c-4.867 4.454-10.957 6.45-15.464 5.067c-5.735-1.738-8.907-6.656-8.856-13.746c.024-7.117 3.172-14.617 8.473-20.172c2.996-3.125 5.812-4.969 8.68-5.66c2.07-.512 3.328-.485 5.296.129zm0 0"/><path d="M90.418 58.676c-.563.562-.356 2.816.36 4.25c.359.742.742 1.332.87 1.332c.102 0 .332-.59.512-1.309c.64-2.66-.512-5.504-1.742-4.273m0 0"/></g></svg>
-        <span class="skill-name">Canva</span>
-      </div>
-      <div class="skill-card">
-        <svg class="skill-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 131"><path fill="#2396ED" d="m140.598 25.715l3.892 2.818c6.77 5.46 10.662 11.625 11.508 18.67c7.277-1.409 16.584-.352 20.646 2.466l3.723 2.29l-.677 1.41c-1.185 2.641-1.523 3.346-1.692 3.698c-6.6 13.21-19.631 13.386-25.723 13.21c-15.4 38.573-48.23 59.885-92.57 59.885c-20.476 0-36.045-6.517-46.538-19.375C-.709 93.88-.709 71.862.475 64.817l.339-1.41h122.353c6.43 0 11.339-1.76 13.708-3.17c-2.539-3.875-3.385-8.278-3.554-10.744c-.508-7.045 1.185-14.443 4.57-19.727zm106.014 8.179q2.048 0 3.468 1.373t1.42 3.467v43.563q0 10.89-7.634 18.43q-7.726 7.633-18.43 7.633q-10.798 0-18.43-7.633q-7.633-7.633-7.633-18.43t7.633-18.43q7.632-7.634 18.43-7.633q9.262 0 16.336 5.724V38.734q0-2.094 1.373-3.467t3.467-1.373m36.49 22.34q10.705 0 18.43 7.632q3.818 3.818 5.702 8.424q1.885 4.608 1.932 10.007q0 10.89-7.633 18.43q-7.725 7.633-18.43 7.633q-10.798 0-18.43-7.633q-7.634-7.633-7.634-18.43t7.633-18.43q7.633-7.634 18.43-7.633m57.574 0q9.82 0 16.988 6.33q1.675 1.488 1.675 3.676q0 2.095-1.373 3.49q-1.373 1.397-3.467 1.397a4.93 4.93 0 0 1-3.165-1.117q-2.373-2.002-4.98-3.025t-5.678-1.024q-3.397 0-6.376 1.28a16.7 16.7 0 0 0-5.213 3.49a16.2 16.2 0 0 0-3.514 5.19q-1.28 2.977-1.28 6.376q0 3.397 1.28 6.376a16.2 16.2 0 0 0 3.514 5.19a16.7 16.7 0 0 0 5.213 3.49q2.979 1.28 6.376 1.28q3.072 0 5.678-1q2.607-1.002 4.933-3.003q1.304-.977 3.072-1.024q2.094 0 3.467 1.373t1.373 3.468q0 2.048-1.535 3.583q-7.214 6.33-16.988 6.33q-10.798 0-18.43-7.633q-7.633-7.633-7.633-18.43t7.633-18.43t18.43-7.633m29.044-22.34q2.001 0 3.42 1.42q1.42 1.418 1.42 3.467v36.302l27.832-18.105q1.163-.744 2.606-.744q1.024 0 1.908.372q.885.372 1.536 1.047t1.047 1.56t.396 1.86q0 2.607-1.862 3.864l-19.5 12.66l20.012 22.525q1.35 1.489 1.35 3.398q0 .977-.396 1.861a5.4 5.4 0 0 1-1.047 1.56q-.651.675-1.536 1.046a4.9 4.9 0 0 1-1.908.373q-1.955 0-3.258-1.257l-21.502-24.155l-5.678 3.724v16.801q0 2.001-1.42 3.444t-3.42 1.443q-2.048 0-3.468-1.443t-1.42-3.444V38.781q0-2.048 1.42-3.468t3.468-1.42m71.489 22.34q10.704 0 18.43 7.632q3.816 3.77 5.725 8.401q1.908 4.63 1.908 10.03q0 2.094-1.42 3.467t-3.467 1.373h-36.86a15.9 15.9 0 0 0 2.327 4.677a16.3 16.3 0 0 0 3.606 3.63a16.7 16.7 0 0 0 4.562 2.351q2.49.838 5.189.838q3.072 0 5.631-.931q2.56-.93 4.748-2.793a5.1 5.1 0 0 1 3.21-1.21q2.095 0 3.468 1.373t1.373 3.468q0 2.047-1.396 3.49q-7.214 6.33-17.034 6.33q-10.798 0-18.43-7.633q-7.633-7.633-7.633-18.43t7.633-18.43t18.43-7.633m57.48 0q2.048 0 4.398.279q2.35.28 4.329 1q1.978.721 3.28 1.978q1.305 1.257 1.304 3.258q0 1.025-.396 1.909a5.4 5.4 0 0 1-1.047 1.559q-.651.675-1.536 1.047a4.9 4.9 0 0 1-1.908.372q-.885 0-2.048-.512q-2.932-1.163-6.376-1.163q-3.397 0-6.376 1.28q-2.978 1.28-5.19 3.49q-2.21 2.211-3.49 5.19q-1.28 2.977-1.28 6.376v21.223q0 2.001-1.42 3.42t-3.42 1.42q-2.048 0-3.467-1.42t-1.42-3.42V61.074q0-2.002 1.42-3.42q1.42-1.42 3.467-1.42q2.001 0 3.42 1.42q1.42 1.418 1.42 3.42v.93a26.7 26.7 0 0 1 7.586-4.281q4.095-1.49 8.75-1.49M225.436 65.96q-3.444 0-6.423 1.303t-5.166 3.514t-3.467 5.19t-1.28 6.329t1.28 6.33t3.467 5.189t5.166 3.514q2.979 1.302 6.423 1.303q3.397 0 6.376-1.303a16.6 16.6 0 0 0 5.19-3.538a16.8 16.8 0 0 0 3.49-5.189q1.28-2.955 1.28-6.306t-1.28-6.307a16.8 16.8 0 0 0-3.49-5.189a16.6 16.6 0 0 0-5.19-3.537q-2.978-1.303-6.376-1.303m57.667 0q-3.444 0-6.423 1.303t-5.166 3.514t-3.468 5.19t-1.28 6.329t1.28 6.33q1.281 2.978 3.468 5.189t5.166 3.514t6.423 1.303q3.397 0 6.376-1.303a16.6 16.6 0 0 0 5.19-3.538a16.8 16.8 0 0 0 3.49-5.189q1.28-2.955 1.28-6.306t-1.28-6.307a16.8 16.8 0 0 0-3.49-5.189a16.6 16.6 0 0 0-5.19-3.537q-2.979-1.303-6.376-1.303m158.106 0q-2.653 0-5.166.837a17 17 0 0 0-4.608 2.35a16.1 16.1 0 0 0-3.63 3.631a15.1 15.1 0 0 0-2.28 4.677h31.368a15.6 15.6 0 0 0-2.35-4.677a16.8 16.8 0 0 0-3.63-3.63a16.7 16.7 0 0 0-4.561-2.35a16 16 0 0 0-5.143-.838M32.629 42.27v17.614H14.014V42.272zm22 0v17.614H36.014V42.272zm22 0v17.614H58.013V42.272zm22 0v17.614H80.013V42.272zm22 0v17.614h-18.616V42.272zm-22-21.135v17.613H80.013V21.136zm-22 0v17.613H58.013V21.136zm-22 0v17.613H36.014V21.136zM98.629 0v17.613H80.013V0z"/></svg>
-        <span class="skill-name">Docker</span>
-      </div>
-      <div class="skill-card">
-        <svg class="skill-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 254"><defs><linearGradient id="SVGBYn71eda" x1="50%" x2="50%" y1="0%" y2="100%"><stop offset="0%" stop-color="#FFF"/><stop offset="100%" stop-color="#FFF" stop-opacity="0"/></linearGradient><path id="SVG64cKeddW" d="M180.828 252.605a15.87 15.87 0 0 0 12.65-.486l52.501-25.262a15.94 15.94 0 0 0 9.025-14.364V41.197a15.94 15.94 0 0 0-9.025-14.363l-52.5-25.263a15.88 15.88 0 0 0-18.115 3.084L74.857 96.35l-43.78-33.232a10.614 10.614 0 0 0-13.56.603L3.476 76.494c-4.63 4.211-4.635 11.495-.012 15.713l37.967 34.638l-37.967 34.637c-4.623 4.219-4.618 11.502.012 15.714l14.041 12.772a10.614 10.614 0 0 0 13.56.604l43.78-33.233l100.507 91.695a15.85 15.85 0 0 0 5.464 3.571m10.464-183.649l-76.262 57.889l76.262 57.888z"/></defs><mask id="SVGOwLbge4h" fill="#fff"><use href="#SVG64cKeddW"/></mask><path fill="#0065A9" d="M246.135 26.873L193.593 1.575a15.885 15.885 0 0 0-18.123 3.08L3.466 161.482c-4.626 4.219-4.62 11.502.012 15.714l14.05 12.772a10.625 10.625 0 0 0 13.569.604L238.229 33.436c6.949-5.271 16.93-.315 16.93 8.407v-.61a15.94 15.94 0 0 0-9.024-14.36" mask="url(#SVGOwLbge4h)"/><path fill="#007ACC" d="m246.135 226.816l-52.542 25.298a15.89 15.89 0 0 1-18.123-3.08L3.466 92.207c-4.626-4.218-4.62-11.502.012-15.713l14.05-12.773a10.625 10.625 0 0 1 13.569-.603l207.132 157.135c6.949 5.271 16.93.315 16.93-8.408v.611a15.94 15.94 0 0 1-9.024 14.36" mask="url(#SVGOwLbge4h)"/><path fill="#1F9CF0" d="M193.428 252.134a15.89 15.89 0 0 1-18.125-3.083c5.881 5.88 15.938 1.715 15.938-6.603V11.273c0-8.318-10.057-12.483-15.938-6.602a15.89 15.89 0 0 1 18.125-3.084l52.533 25.263a15.94 15.94 0 0 1 9.03 14.363V212.51c0 6.125-3.51 11.709-9.03 14.363z" mask="url(#SVGOwLbge4h)"/><path fill="url(#SVGBYn71eda)" fill-opacity=".25" d="M180.828 252.605a15.87 15.87 0 0 0 12.65-.486l52.5-25.263a15.94 15.94 0 0 0 9.026-14.363V41.197a15.94 15.94 0 0 0-9.025-14.363L193.477 1.57a15.88 15.88 0 0 0-18.114 3.084L74.857 96.35l-43.78-33.232a10.614 10.614 0 0 0-13.56.603L3.476 76.494c-4.63 4.211-4.635 11.495-.012 15.713l37.967 34.638l-37.967 34.637c-4.623 4.219-4.618 11.502.012 15.714l14.041 12.772a10.614 10.614 0 0 0 13.56.604l43.78-33.233l100.506 91.695a15.9 15.9 0 0 0 5.465 3.571m10.464-183.65l-76.262 57.89l76.262 57.888z" mask="url(#SVGOwLbge4h)"/></svg>
-        <span class="skill-name">VS Code</span>
-      </div>
-      <div class="skill-card">
-        <svg class="skill-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 264"><path d="M255.008 158.086c-1.535-4.649-5.556-7.887-10.756-8.664c-2.452-.366-5.26-.21-8.583.475c-5.792 1.195-10.089 1.65-13.225 1.738c11.837-19.985 21.462-42.775 27.003-64.228c8.96-34.689 4.172-50.492-1.423-57.64C233.217 10.847 211.614.683 185.552.372c-13.903-.17-26.108 2.575-32.475 4.549c-5.928-1.046-12.302-1.63-18.99-1.738c-12.537-.2-23.614 2.533-33.079 8.15c-5.24-1.772-13.65-4.27-23.362-5.864c-22.842-3.75-41.252-.828-54.718 8.685C6.622 25.672-.937 45.684.461 73.634c.444 8.874 5.408 35.874 13.224 61.48c4.492 14.718 9.282 26.94 14.237 36.33c7.027 13.315 14.546 21.156 22.987 23.972c4.731 1.576 13.327 2.68 22.368-4.85c1.146 1.388 2.675 2.767 4.704 4.048c2.577 1.625 5.728 2.953 8.875 3.74c11.341 2.835 21.964 2.126 31.027-1.848c.056 1.612.099 3.152.135 4.482c.06 2.157.12 4.272.199 6.25c.537 13.374 1.447 23.773 4.143 31.049c.148.4.347 1.01.557 1.657c1.345 4.118 3.594 11.012 9.316 16.411c5.925 5.593 13.092 7.308 19.656 7.308c3.292 0 6.433-.432 9.188-1.022c9.82-2.105 20.973-5.311 29.041-16.799c7.628-10.86 11.336-27.217 12.007-52.99q.13-1.094.244-2.088l.16-1.362l1.797.158l.463.031c10.002.456 22.232-1.665 29.743-5.154c5.935-2.754 24.954-12.795 20.476-26.351"/><path fill="#336791" d="M237.906 160.722c-29.74 6.135-31.785-3.934-31.785-3.934c31.4-46.593 44.527-105.736 33.2-120.211c-30.904-39.485-84.399-20.811-85.292-20.327l-.287.052c-5.876-1.22-12.451-1.946-19.842-2.067c-13.456-.22-23.664 3.528-31.41 9.402c0 0-95.43-39.314-90.991 49.444c.944 18.882 27.064 142.873 58.218 105.422c11.387-13.695 22.39-25.274 22.39-25.274c5.464 3.63 12.006 5.482 18.864 4.817l.533-.452c-.166 1.7-.09 3.363.213 5.332c-8.026 8.967-5.667 10.541-21.711 13.844c-16.235 3.346-6.698 9.302-.471 10.86c7.549 1.887 25.013 4.561 36.813-11.958l-.47 1.885c3.144 2.519 5.352 16.383 4.982 28.952c-.37 12.568-.617 21.197 1.86 27.937c2.479 6.74 4.948 21.905 26.04 17.386c17.623-3.777 26.756-13.564 28.027-29.89c.901-11.606 2.942-9.89 3.07-20.267l1.637-4.912c1.887-15.733.3-20.809 11.157-18.448l2.64.232c7.99.363 18.45-1.286 24.589-4.139c13.218-6.134 21.058-16.377 8.024-13.686z"/><path fill="#FFF" d="M108.076 81.525c-2.68-.373-5.107-.028-6.335.902c-.69.523-.904 1.129-.962 1.546c-.154 1.105.62 2.327 1.096 2.957c1.346 1.784 3.312 3.01 5.258 3.28q.423.059.842.058c3.245 0 6.196-2.527 6.456-4.392c.325-2.336-3.066-3.893-6.355-4.35m88.784.073c-.256-1.831-3.514-2.353-6.606-1.923c-3.088.43-6.082 1.824-5.832 3.659c.2 1.427 2.777 3.863 5.827 3.863q.387 0 .78-.054c2.036-.282 3.53-1.575 4.24-2.32c1.08-1.136 1.706-2.402 1.591-3.225"/><path fill="#FFF" d="M247.802 160.025c-1.134-3.429-4.784-4.532-10.848-3.28c-18.005 3.716-24.453 1.142-26.57-.417c13.995-21.32 25.508-47.092 31.719-71.137c2.942-11.39 4.567-21.968 4.7-30.59c.147-9.463-1.465-16.417-4.789-20.665c-13.402-17.125-33.072-26.311-56.882-26.563c-16.369-.184-30.199 4.005-32.88 5.183c-5.646-1.404-11.801-2.266-18.502-2.376c-12.288-.199-22.91 2.743-31.704 8.74c-3.82-1.422-13.692-4.811-25.765-6.756c-20.872-3.36-37.458-.814-49.294 7.571c-14.123 10.006-20.643 27.892-19.38 53.16c.425 8.501 5.269 34.653 12.913 59.698c10.062 32.964 21 51.625 32.508 55.464c1.347.449 2.9.763 4.613.763c4.198 0 9.345-1.892 14.7-8.33a530 530 0 0 1 20.261-22.926c4.524 2.428 9.494 3.784 14.577 3.92q.016.2.035.398a118 118 0 0 0-2.57 3.175c-3.522 4.471-4.255 5.402-15.592 7.736c-3.225.666-11.79 2.431-11.916 8.435c-.136 6.56 10.125 9.315 11.294 9.607c4.074 1.02 7.999 1.523 11.742 1.523c9.103 0 17.114-2.992 23.516-8.781c-.197 23.386.778 46.43 3.586 53.451c2.3 5.748 7.918 19.795 25.664 19.794c2.604 0 5.47-.303 8.623-.979c18.521-3.97 26.564-12.156 29.675-30.203c1.665-9.645 4.522-32.676 5.866-45.03c2.836.885 6.487 1.29 10.434 1.289c8.232 0 17.731-1.749 23.688-4.514c6.692-3.108 18.768-10.734 16.578-17.36m-44.106-83.48c-.061 3.647-.563 6.958-1.095 10.414c-.573 3.717-1.165 7.56-1.314 12.225c-.147 4.54.42 9.26.968 13.825c1.108 9.22 2.245 18.712-2.156 28.078a37 37 0 0 1-1.95-4.009c-.547-1.326-1.735-3.456-3.38-6.404c-6.399-11.476-21.384-38.35-13.713-49.316c2.285-3.264 8.084-6.62 22.64-4.813m-17.644-61.787c21.334.471 38.21 8.452 50.158 23.72c9.164 11.711-.927 64.998-30.14 110.969a171 171 0 0 0-.886-1.117l-.37-.462c7.549-12.467 6.073-24.802 4.759-35.738c-.54-4.488-1.05-8.727-.92-12.709c.134-4.22.692-7.84 1.232-11.34c.663-4.313 1.338-8.776 1.152-14.037c.139-.552.195-1.204.122-1.978c-.475-5.045-6.235-20.144-17.975-33.81c-6.422-7.475-15.787-15.84-28.574-21.482c5.5-1.14 13.021-2.203 21.442-2.016M66.674 175.778c-5.9 7.094-9.974 5.734-11.314 5.288c-8.73-2.912-18.86-21.364-27.791-50.624c-7.728-25.318-12.244-50.777-12.602-57.916c-1.128-22.578 4.345-38.313 16.268-46.769c19.404-13.76 51.306-5.524 64.125-1.347c-.184.182-.376.352-.558.537c-21.036 21.244-20.537 57.54-20.485 59.759c-.002.856.07 2.068.168 3.735c.362 6.105 1.036 17.467-.764 30.334c-1.672 11.957 2.014 23.66 10.111 32.109a36 36 0 0 0 2.617 2.468c-3.604 3.86-11.437 12.396-19.775 22.426m22.479-29.993c-6.526-6.81-9.49-16.282-8.133-25.99c1.9-13.592 1.199-25.43.822-31.79c-.053-.89-.1-1.67-.127-2.285c3.073-2.725 17.314-10.355 27.47-8.028c4.634 1.061 7.458 4.217 8.632 9.645c6.076 28.103.804 39.816-3.432 49.229c-.873 1.939-1.698 3.772-2.402 5.668l-.546 1.466c-1.382 3.706-2.668 7.152-3.465 10.424c-6.938-.02-13.687-2.984-18.819-8.34m1.065 37.9c-2.026-.506-3.848-1.385-4.917-2.114c.893-.42 2.482-.992 5.238-1.56c13.337-2.745 15.397-4.683 19.895-10.394c1.031-1.31 2.2-2.794 3.819-4.602l.002-.002c2.411-2.7 3.514-2.242 5.514-1.412c1.621.67 3.2 2.702 3.84 4.938c.303 1.056.643 3.06-.47 4.62c-9.396 13.156-23.088 12.987-32.921 10.526m69.799 64.952c-16.316 3.496-22.093-4.829-25.9-14.346c-2.457-6.144-3.665-33.85-2.808-64.447c.011-.407-.047-.8-.159-1.17a15.4 15.4 0 0 0-.456-2.162c-1.274-4.452-4.379-8.176-8.104-9.72c-1.48-.613-4.196-1.738-7.46-.903c.696-2.868 1.903-6.107 3.212-9.614l.549-1.475c.618-1.663 1.394-3.386 2.214-5.21c4.433-9.848 10.504-23.337 3.915-53.81c-2.468-11.414-10.71-16.988-23.204-15.693c-7.49.775-14.343 3.797-17.761 5.53c-.735.372-1.407.732-2.035 1.082c.954-11.5 4.558-32.992 18.04-46.59c8.489-8.56 19.794-12.788 33.568-12.56c27.14.444 44.544 14.372 54.366 25.979c8.464 10.001 13.047 20.076 14.876 25.51c-13.755-1.399-23.11 1.316-27.852 8.096c-10.317 14.748 5.644 43.372 13.315 57.129c1.407 2.521 2.621 4.7 3.003 5.626c2.498 6.054 5.732 10.096 8.093 13.046c.724.904 1.426 1.781 1.96 2.547c-4.166 1.201-11.649 3.976-10.967 17.847c-.55 6.96-4.461 39.546-6.448 51.059c-2.623 15.21-8.22 20.875-23.957 24.25m68.104-77.936c-4.26 1.977-11.389 3.46-18.161 3.779c-7.48.35-11.288-.838-12.184-1.569c-.42-8.644 2.797-9.547 6.202-10.503c.535-.15 1.057-.297 1.561-.473q.469.383 1.032.756c6.012 3.968 16.735 4.396 31.874 1.271l.166-.033c-2.042 1.909-5.536 4.471-10.49 6.772"/></svg>
-        <span class="skill-name">pgAdmin4</span>
-      </div>
-      <div class="skill-card">
-        <svg class="skill-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <defs>
-    <linearGradient id="wg1" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#2B7CD3"/>
-      <stop offset="100%" stop-color="#185ABD"/>
-    </linearGradient>
-  </defs>
-  <rect width="32" height="32" rx="5" fill="url(#wg1)"/>
-  <text x="4" y="23" font-family="Arial Black,Arial" font-weight="900" font-size="18" fill="white">W</text>
-</svg>
-        <span class="skill-name">Word</span>
-      </div>
-      <div class="skill-card">
-        <svg class="skill-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#FB7A24"><title>XAMPP</title><path d="M16.792,11.923c0.113,0.043,0.226,0.079,0.334,0.128c0.45,0.203,0.715,0.553,0.748,1.044 c0.041,0.634,0.044,1.271,0.002,1.905c-0.049,0.732-0.725,1.292-1.483,1.271c-0.735-0.021-1.369-0.62-1.397-1.341 c-0.017-0.441-0.003-0.884-0.006-1.326c-0.001-0.239-0.003-0.242-0.245-0.243c-1.363-0.001-2.726,0.008-4.089-0.003 c-0.888-0.007-1.421,0.482-1.471,1.46c-0.019,0.38-0.1,0.727-0.357,1.018c-0.397,0.451-0.898,0.601-1.472,0.466 c-0.554-0.131-0.867-0.522-1.035-1.048c-0.117-0.367-0.056-0.737,0.012-1.094c0.341-1.797,1.366-3.006,3.125-3.555 c0.357-0.112,0.731-0.166,1.105-0.166c0.94,0.001,1.881,0.001,2.821-0.001c0.128,0,0.257-0.012,0.385-0.021 c0.702-0.051,1.166-0.511,1.22-1.352c0.004-0.064,0-0.129,0.001-0.193c0.011-0.788,0.605-1.396,1.393-1.425 c0.787-0.029,1.438,0.527,1.493,1.318c0.076,1.083-0.265,2.046-0.913,2.907C16.903,11.751,16.819,11.816,16.792,11.923z M8.249,10.436c-0.258-0.008-0.571,0.018-0.882-0.035c-0.536-0.09-0.876-0.39-1.02-0.916C6.19,8.912,6.25,8.388,6.698,7.96 C7.154,7.526,7.694,7.4,8.285,7.645c0.52,0.216,0.859,0.731,0.89,1.293C9.2,9.382,9.178,9.828,9.182,10.272 c0.001,0.116-0.043,0.167-0.161,0.165C8.781,10.434,8.542,10.436,8.249,10.436z M21.682,0H2.318C1.102,0,0.116,0.986,0.116,2.202 v19.317c0,1.37,1.111,2.481,2.481,2.481h18.807c1.37,0,2.481-1.111,2.481-2.481V2.202C23.884,0.986,22.898,0,21.682,0z M20.125,12.473c0.519,0.804,0.733,1.69,0.677,2.657c-0.108,1.886-1.413,3.474-3.25,3.916c-2.585,0.623-4.566-0.923-5.233-2.794 c-0.109-0.304-0.16-0.622-0.224-0.985c-0.068,0.414-0.115,0.789-0.264,1.134c-0.697,1.617-1.884,2.603-3.665,2.799 c-2.104,0.232-4.048-1.067-4.632-3.084c-0.25-0.863-0.175-1.747-0.068-2.625c0.08-0.653,0.321-1.268,0.632-1.848 c0.057-0.106,0.057-0.184-0.01-0.285c-0.561-0.845-0.779-1.777-0.7-2.784C3.43,8.035,3.56,7.52,3.805,7.038 C4.52,5.626,6.09,4.427,8.193,4.626c1.849,0.175,3.562,1.77,3.83,3.564c0.013,0.09,0.039,0.178,0.068,0.311 c0.044-0.241,0.076-0.439,0.118-0.636c0.344-1.63,1.94-3.335,4.201-3.357c2.292-0.021,3.99,1.776,4.31,3.446 c0.17,0.888,0.089,1.776-0.103,2.663c-0.112,0.517-0.31,1.008-0.524,1.492C20.034,12.245,20.043,12.345,20.125,12.473z"/></svg>
-        <span class="skill-name">XAMPP</span>
-      </div>
+      <div class="skill-card"><span class="skill-name">Figma</span></div>
+      <div class="skill-card"><span class="skill-name">Canva</span></div>
+      <div class="skill-card"><span class="skill-name">WordPress</span></div>
+      <div class="skill-card"><span class="skill-name">Docker</span></div>
+      <div class="skill-card"><span class="skill-name">VS Code</span></div>
+      <div class="skill-card"><span class="skill-name">XAMPP</span></div>
     </div>
   </div>
 </div>
-
-
 
 <!-- PROJECTS -->
-<div class="sw" id="projects">
+<div class="sw">
   <span class="section-tag reveal">✦ 03 / Projects</span>
-  <h2 class="section-title reveal">ผลงานที่<span> ภูมิใจ</span></h2>
-  <div class="projects-grid" id="proj-grid">
-
+  <h2 class="section-title reveal" data-th>ผลงานที่<span> ภูมิใจ</span></h2>
+  <h2 class="section-title reveal" data-en>Featured<span> Projects</span></h2>
+  
+  <div class="projects-grid">
     <div class="project-card reveal">
-      <div class="project-top">
-        <div class="project-emoji">🏨</div>
-        <div class="project-links-row">
-          <a class="proj-btn" href="https://github.com/thinnawut12-05/Thinnawut" target="_blank"><i class="fab fa-github"></i></a>
-        </div>
-      </div>
-      <div class="project-name">DOM INN HOTEL — ระบบจองห้องพัก</div>
-      <div class="project-desc">โปรเจกต์จบการศึกษา ระบบจองห้องพักออนไลน์ รองรับการค้นหาห้องว่าง จองห้อง และบริหารจัดการโรงแรม พัฒนาโดยใช้ PHP + MySQL บน XAMPP</div>
-      <div class="project-tags"><span class="ptag">PHP</span><span class="ptag">MySQL</span><span class="ptag">Bootstrap 5</span><span class="ptag">JavaScript</span><span class="ptag">XAMPP</span></div>
+      <div class="project-emoji">🏨</div>
+      <div class="project-name">DOM INN HOTEL</div>
+      <p class="project-desc" data-th>ระบบจองห้องพักออนไลน์ รองรับการค้นหาห้องว่าง และการจัดการโรงแรม</p>
+      <p class="project-desc" data-en>Online hotel reservation system with room searching and management features.</p>
+      <div class="project-tags"><span class="ptag">PHP</span><span class="ptag">MySQL</span></div>
     </div>
 
     <div class="project-card reveal">
-      <div class="project-top">
-        <div class="project-emoji">🕐</div>
-        <div class="project-links-row">
-          <a class="proj-btn" href="https://github.com/thinnawut12-05/timeclock" target="_blank"><i class="fab fa-github"></i></a>
-        </div>
-      </div>
-      <div class="project-name">ระบบลงเวลางาน (Time Attendance)</div>
-      <div class="project-desc">ระบบลงเวลาเข้า-ออกงานด้วยรหัสพนักงาน + PIN พร้อม Admin Dashboard ดูสถานะพนักงาน คำนวณ OT อัตโนมัติ และออกรายงานรายเดือน</div>
-      <div class="project-tags"><span class="ptag">PHP</span><span class="ptag">CSS</span><span class="ptag">MySQL</span></div>
+      <div class="project-emoji">🕐</div>
+      <div class="project-name">Time Attendance</div>
+      <p class="project-desc" data-th>ระบบลงเวลางานพนักงาน พร้อมคำนวณ OT และสรุปรายงาน</p>
+      <p class="project-desc" data-en>Employee time clock system with OT calculation and monthly reports.</p>
+      <div class="project-tags"><span class="ptag">PHP</span><span class="ptag">CSS</span></div>
     </div>
 
     <div class="project-card reveal">
-      <div class="project-top">
-        <div class="project-emoji">📦</div>
-        <div class="project-links-row">
-          <a class="proj-btn" href="https://github.com/thinnawut12-05/Arrange-stock" target="_blank"><i class="fab fa-github"></i></a>
-        </div>
-      </div>
-      <div class="project-name">ระบบจัดสต๊อกสินค้า</div>
-      <div class="project-desc">ระบบสำหรับเพิ่มรายการ จัดการ และติดตามสต๊อกสินค้าในฐานข้อมูล พัฒนาเพื่อฝึกทักษะ CRUD กับ PHP และ MySQL</div>
-      <div class="project-tags"><span class="ptag">PHP</span><span class="ptag">MySQL</span><span class="ptag">CSS</span></div>
-    </div>
-
-    <div class="project-card reveal">
-      <div class="project-top">
-        <div class="project-emoji">🐍</div>
-        <div class="project-links-row">
-          <a class="proj-btn" href="https://github.com/thinnawut12-05/snake-game" target="_blank"><i class="fab fa-github"></i></a>
-        </div>
-      </div>
+      <div class="project-emoji">🐍</div>
       <div class="project-name">Snake Game</div>
-      <div class="project-desc">เกม Snake คลาสสิกที่พัฒนาด้วย Python และ Pygame ผู้เล่นเก็บก้อนสี่เหลี่ยมเพื่อเพิ่มความยาว ฝึกทักษะ Game Loop และ Event Handling</div>
+      <p class="project-desc" data-th>เกมงูคลาสสิก พัฒนาด้วย Python เพื่อฝึกฝน Logic</p>
+      <p class="project-desc" data-en>Classic snake game built with Python to practice game logic.</p>
       <div class="project-tags"><span class="ptag">Python</span><span class="ptag">Pygame</span></div>
     </div>
-
-    <div class="project-card reveal">
-      <div class="project-top">
-        <div class="project-emoji">🖥️</div>
-        <div class="project-links-row">
-          <a class="proj-btn" href="https://github.com/thinnawut12-05/computer_shop" target="_blank"><i class="fab fa-github"></i></a>
-        </div>
-      </div>
-      <div class="project-name">TechShop Pro — ระบบขายอุปกรณ์คอมพิวเตอร์</div>
-      <div class="project-desc">ระบบ E-Commerce สำหรับร้านคอมพิวเตอร์ มีหน้าร้านแสดงสินค้าแบ่งหมวดหมู่ ตะกร้าสินค้า ระบบชำระเงิน และ Admin Dashboard จัดการสินค้า-ออเดอร์ครบครัน</div>
-      <div class="project-tags"><span class="ptag">PHP</span><span class="ptag">MySQL</span><span class="ptag">Bootstrap 5</span><span class="ptag">JavaScript</span><span class="ptag">XAMPP</span></div>
-    </div>
-
   </div>
 </div>
 
 <!-- CONTACT -->
-<div class="sw" id="contact">
+<div class="sw">
   <span class="section-tag reveal">✦ 04 / Contact</span>
-  <h2 class="section-title reveal">ติดต่อ<span> ผม</span></h2>
+  <h2 class="section-title reveal" data-th>ติดต่อ<span> ผม</span></h2>
+  <h2 class="section-title reveal" data-en>Contact<span> Me</span></h2>
+  
   <div class="contact-grid">
     <a class="contact-card reveal" href="mailto:thinnawut0026@gmail.com">
       <div class="contact-icon"><i class="fa fa-envelope"></i></div>
-      <div><div class="contact-label">Email (หลัก)</div><div class="contact-val">thinnawut0026@gmail.com</div></div>
-    </a>
-    <a class="contact-card reveal" href="mailto:thinnawut.ph@gmail.com">
-      <div class="contact-icon" style="color:#c084fc"><i class="fa fa-envelope"></i></div>
-      <div><div class="contact-label">Email (สำรอง)</div><div class="contact-val">thinnawut.ph@gmail.com</div></div>
+      <div><div class="contact-label">Email</div><div class="contact-val">thinnawut0026@gmail.com</div></div>
     </a>
     <a class="contact-card reveal" href="tel:+66967501732">
       <div class="contact-icon" style="color:#10b981"><i class="fa fa-phone"></i></div>
-      <div><div class="contact-label">Phone</div><div class="contact-val">096-750-1732</div></div>
-    </a>
-    <a class="contact-card reveal" href="https://github.com/thinnawut12-05" target="_blank">
-      <div class="contact-icon" style="color:#a78bfa"><i class="fab fa-github"></i></div>
-      <div><div class="contact-label">GitHub</div><div class="contact-val">thinnawut12-05</div></div>
+      <div><div class="contact-label" data-th>เบอร์โทรศัพท์</div><div class="contact-label" data-en>Phone</div><div class="contact-val">096-750-1732</div></div>
     </a>
     <a class="contact-card reveal" href="#">
       <div class="contact-icon" style="color:#4ade80"><i class="fab fa-line"></i></div>
-      <div><div class="contact-label">Line</div><div class="contact-val">thinna04</div></div>
-    </a>
-    <a class="contact-card reveal" href="#">
-      <div class="contact-icon" style="color:#fbbf24"><i class="fa fa-map-marker-alt"></i></div>
-      <div><div class="contact-label">ที่อยู่</div><div class="contact-val">212/10 ต.หนองพันทา อ.โซ่พิสัย จ.บึงกาฬ 38170</div></div>
+      <div><div class="contact-label">Line ID</div><div class="contact-val">thinna04</div></div>
     </a>
   </div>
 </div>
 
-<footer>&copy; 2026 <span>ทินวุฒิ พลบำรุง</span> · Thinnawut Pholbumrung · All rights reserved</footer>
-
+<footer>
+  &copy; 2026 <span data-th>ทินวุฒิ พลบำรุง</span><span data-en>Thinnawut Pholbumrung</span> · All rights reserved
+</footer>
 
 <script>
+// Scroll Animation
 const obs = new IntersectionObserver(entries => {
   entries.forEach((e, i) => { if(e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), i * 60); });
-}, {threshold: 0.08});
+}, {threshold: 0.1});
 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+// Language Switcher
+function toggleLang() {
+  const body = document.body;
+  if (body.classList.contains('lang-th')) {
+    body.classList.remove('lang-th');
+    body.classList.add('lang-en');
+  } else {
+    body.classList.remove('lang-en');
+    body.classList.add('lang-th');
+  }
+}
 </script>
 </body>
 </html>
